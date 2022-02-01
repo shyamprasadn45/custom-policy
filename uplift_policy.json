@@ -1,0 +1,35 @@
+{
+  "mode": "Microsoft.Kubernetes.Data",
+  "parameters": {
+    "effect": {
+      "type": "String",
+      "defaultValue": "deny",
+      "allowedValues": [
+        "audit",
+        "deny",
+        "disabled"
+      ],
+      "metadata": {
+        "displayName": "Effect",
+        "description": "Enable or disable the execution of the policy"
+      }
+    }
+  },
+  "policyRule": {
+    "if": {
+      "field": "type",
+      "in": [
+        "AKS Engine",
+        "Microsoft.Kubernetes/connectedClusters",
+        "Microsoft.ContainerService/managedClusters"
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]",
+      "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/SureshDamera/azure-policy/master/built-in-references/KubernetesService/container-resource-limits/limited-preview/uplift_rego.yaml",
+        "constraint": "https://raw.githubusercontent.com/SureshDamera/azure-policy/master/built-in-references/KubernetesService/container-resource-limits/limited-preview/constraints.yml"
+      }
+    }
+  }
+}
