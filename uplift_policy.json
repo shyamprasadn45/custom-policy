@@ -27,8 +27,8 @@
     "then": {
       "effect": "[parameters('effect')]",
       "details": {
-        "constraintTemplate": "https://raw.githubusercontent.com/SureshDamera/azure-policy/master/built-in-references/KubernetesService/container-resource-limits/limited-preview/uplift_rego.yaml",
-        "constraint": "https://raw.githubusercontent.com/SureshDamera/azure-policy/master/built-in-references/KubernetesService/container-resource-limits/limited-preview/constraints.yml"
+        "constraintTemplate": "https://raw.githubusercontent.com/shyamprasadn45/custom-policy/main/uplift_rego.yaml",
+        "constraint": "https://raw.githubusercontent.com/shyamprasadn45/custom-policy/main/constraints.yml"
       }
     }
   }
